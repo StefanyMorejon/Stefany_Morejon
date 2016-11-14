@@ -1,0 +1,385 @@
+//Universidad Técnica del Norte
+//Stefany Morejón
+// 13 de Noviembre de 2016
+//Contador 0-99 con pulsador
+
+int A=13;
+int B=12; 
+int C=11;
+int D=10; 
+int unidades=9;
+int decenas=8;
+int contador=0;
+int pulsador=7;
+int contu=0;
+int contd=0;
+void setup(){
+  pinMode(A,OUTPUT);
+  pinMode(B,OUTPUT);
+  pinMode(C,OUTPUT);
+  pinMode(D,OUTPUT);
+  pinMode(unidades,OUTPUT);
+  pinMode(decenas,OUTPUT);}
+
+void dis(int numero){
+switch(numero){
+case 1:
+digitalWrite(A,HIGH);
+digitalWrite(B,LOW);
+digitalWrite(C,LOW);
+digitalWrite(D,LOW);
+delay(100);
+break;
+case 2:
+digitalWrite(A,LOW);
+digitalWrite(B,HIGH);
+digitalWrite(C,LOW);
+digitalWrite(D,LOW);
+delay(100);
+break;
+case 3:
+digitalWrite(A,HIGH);
+digitalWrite(B,HIGH);
+digitalWrite(C,LOW);
+digitalWrite(D,LOW);
+delay(100); 
+break;
+case 4: 
+digitalWrite(A,LOW);
+digitalWrite(B,LOW);
+digitalWrite(C,HIGH);
+digitalWrite(D,LOW);
+delay(100);
+break;
+case 5:
+digitalWrite(A,HIGH);
+digitalWrite(B,LOW);
+digitalWrite(C,HIGH);
+digitalWrite(D,LOW);
+delay(100);
+break;
+case 6:
+digitalWrite(A,LOW);
+digitalWrite(B,HIGH);
+digitalWrite(C,HIGH);
+digitalWrite(D,LOW);
+delay(100);
+break;
+case 7: 
+digitalWrite(A,HIGH);
+digitalWrite(B,HIGH);
+digitalWrite(C,HIGH);
+digitalWrite(D,LOW);
+delay(100); 
+break;
+case 8: digitalWrite(A,LOW);
+digitalWrite(B,LOW);
+digitalWrite(C,LOW);
+digitalWrite(D,HIGH);
+delay(100);
+break;
+case 9:
+digitalWrite(A,HIGH);
+digitalWrite(B,LOW);
+digitalWrite(C,LOW);
+digitalWrite(D,HIGH);
+delay(100);
+break;
+default : 
+digitalWrite(A,LOW);
+digitalWrite(B,LOW);
+digitalWrite(C,LOW);
+digitalWrite(D,LOW);
+delay(100);
+break;
+}
+}
+
+void loop(){
+if(contador<99){contador++;contd=contador/10;
+digitalWrite(unidades,LOW);
+digitalWrite(decenas,HIGH);
+dis(contd);delay(100);
+                 contu=contador-(contd*10);
+                 digitalWrite(unidades,HIGH);
+                 digitalWrite(decenas,LOW);
+                 dis(contu); 
+                 delay(50);
+                 delay(50);}
+else{contador=0;}
+}
+
+
+EJERCICIO 2
+//UNIVERSIDAD TÉCNICA DEL NORTE
+//Stefany Morejón
+//13/11/2016
+//CONTADOR 0-999
+int A=13;
+int B=12;
+int C=11;
+int D=10;
+int contador=0;
+int unidades=9;
+int decenas=8;
+int centenas=7;
+int contador_unidades;
+int contador_decenas;
+int contador_centenas;
+
+void setup() {
+  // put your setup code here, to run once:
+pinMode (A,OUTPUT);
+pinMode (B,OUTPUT);
+pinMode (C,OUTPUT);
+pinMode (D,OUTPUT);
+pinMode (unidades,OUTPUT);
+pinMode (decenas,OUTPUT);
+pinMode (centenas,OUTPUT);
+
+
+}
+
+void loop() {
+  // put your main code here, to run repeatedly:
+
+
+
+  if(contador<1000)
+  {
+    
+    contador ++;
+  
+    contador_centenas=contador/100;
+    digitalWrite(centenas,HIGH);
+    digitalWrite(unidades,LOW);
+    digitalWrite(decenas,LOW);
+    disp(contador_centenas);
+    delay(30);
+    
+      contador_decenas=(contador-contador_centenas*100)/10;
+      digitalWrite(centenas,LOW);
+      digitalWrite(unidades,LOW);
+      digitalWrite(decenas,HIGH);
+      disp(contador_decenas);
+      delay(30);
+      contador_unidades=contador-(contador_centenas*100)-(contador_decenas*10);
+      digitalWrite(unidades,HIGH);
+        digitalWrite(decenas,LOW);
+        digitalWrite(centenas,LOW);
+        disp(contador_unidades);
+        delay(30);
+    
+
+  }
+
+else
+contador=0;
+}
+  
+
+void disp (int numero)
+{
+     switch(numero)
+    {
+    case 0:
+    //0
+digitalWrite(A,LOW);
+digitalWrite(B,LOW);
+digitalWrite(C,LOW);
+digitalWrite(D,LOW);
+delay (100);
+    break; 
+    case 1:
+    //1
+digitalWrite(A,HIGH);
+digitalWrite(B,LOW);
+digitalWrite(C,LOW);
+digitalWrite(D,LOW);
+delay (100);
+    break; 
+     case 2:
+     //2
+digitalWrite(A,LOW);
+digitalWrite(B,HIGH);
+digitalWrite(C,LOW);
+digitalWrite(D,LOW);
+delay (100);
+    break; 
+    case 3:
+    
+//3
+digitalWrite(A,HIGH);
+digitalWrite(B,HIGH);
+digitalWrite(C,LOW);
+digitalWrite(D,LOW);
+delay (100);
+    break; 
+    case 4:
+    //4
+digitalWrite(A,LOW);
+digitalWrite(B,LOW);
+digitalWrite(C,HIGH);
+digitalWrite(D,LOW);
+delay (100);
+    break; 
+    case 5:
+    //5
+digitalWrite(A,HIGH);
+digitalWrite(B,LOW);
+digitalWrite(C,HIGH);
+digitalWrite(D,LOW);
+delay (100);
+    break; 
+     case 6:
+     
+//6
+digitalWrite(A,LOW);
+digitalWrite(B,HIGH);
+digitalWrite(C,HIGH);
+digitalWrite(D,LOW);
+delay (100);
+    break; 
+    case 7:
+    //7
+digitalWrite(A,HIGH);
+digitalWrite(B,HIGH);
+digitalWrite(C,HIGH);
+digitalWrite(D,LOW);
+delay (100);
+    break; 
+     case 8:
+     //8
+digitalWrite(A,LOW);
+digitalWrite(B,LOW);
+digitalWrite(C,LOW);
+digitalWrite(D,HIGH);
+delay (100);
+    break; 
+    case 9:
+    //9
+digitalWrite(A,HIGH);
+digitalWrite(B,LOW);
+digitalWrite(C,LOW);
+digitalWrite(D,HIGH);
+delay (100);
+    break; 
+    }
+}
+
+
+EJERCICIO 3
+//UNIVERSIDAD TÉCNICA DEL NORTE
+//Stefany Morejón
+//13 de Noviembre de 2016
+//Medición de Velocidad 
+int A = 13;
+int B = 12;
+int C = 11;
+int D = 10;
+int motor = 9;
+int valor_cad;
+int unidades = 8;
+int decenas = 7;
+int contador_decena = 0;
+int contador_unidad = 0;
+void setup() {
+ 
+  pinMode(motor, OUTPUT);
+  pinMode (A, OUTPUT);
+  pinMode (B, OUTPUT);
+  pinMode (C, OUTPUT);
+  pinMode (D, OUTPUT);
+  pinMode (unidades, OUTPUT);
+  pinMode (decenas, OUTPUT);
+}
+void loop() {
+  
+  valor_cad = analogRead(0);                          
+  analogWrite(motor,valor_cad/4);                     
+  delay(100);                                       
+  valor_cad = map (valor_cad, 0, 1023, 0, 100);       
+  contador_decena = valor_cad / 10;                       
+  contador_unidad = valor_cad - (contador_decena * 10);       
+  digitalWrite(unidades, HIGH);                       
+  digitalWrite(decenas, LOW);                         
+  dis(contador_unidad);                                   
+  delay(500);                                         
+  digitalWrite(unidades, LOW);                        
+  digitalWrite(decenas, HIGH);                        
+  dis(contador_decena);                                   
+  delay(500);                                         
+}
+void dis (int numero) {                              
+  switch (numero) {                                 
+    case 0:
+      digitalWrite(A, LOW);                          
+      digitalWrite(B, LOW);
+      digitalWrite(C, LOW);
+      digitalWrite(D, LOW);
+      break;
+    case 1:
+      digitalWrite(A, HIGH);
+      digitalWrite(B, LOW);
+      digitalWrite(C, LOW);
+      digitalWrite(D, LOW);
+      break;
+    case 2:
+      digitalWrite(A, LOW);
+      digitalWrite(B, HIGH);
+      digitalWrite(C, LOW);
+      digitalWrite(D, LOW);
+      break;
+    case 3:
+      digitalWrite(A, HIGH);
+      digitalWrite(B, HIGH);
+      digitalWrite(C, LOW);
+      digitalWrite(D, LOW);
+      break;
+    case 4:
+      digitalWrite(A, LOW);
+      digitalWrite(B, LOW);
+      digitalWrite(C, HIGH);
+      digitalWrite(D, LOW);
+      break;
+
+    case 5:
+
+      digitalWrite(A, HIGH);
+      digitalWrite(B, LOW);
+      digitalWrite(C, HIGH);
+      digitalWrite(D, LOW);
+      break;
+
+
+    case 6:
+      digitalWrite(A, LOW);
+      digitalWrite(B, HIGH);
+      digitalWrite(C, HIGH);
+      digitalWrite(D, LOW);
+      break;
+
+    case 7:
+      digitalWrite(A, HIGH);
+      digitalWrite(B, HIGH);
+      digitalWrite(C, HIGH);
+      digitalWrite(D, LOW);
+      break;
+
+    case 8:
+      digitalWrite(A, LOW);
+      digitalWrite(B, LOW);
+      digitalWrite(C, LOW);
+      digitalWrite(D, HIGH);
+      break;
+
+    case 9:
+      digitalWrite(A, HIGH);
+      digitalWrite(B, LOW);
+      digitalWrite(C, LOW);
+      digitalWrite(D, HIGH);
+      break;
+
+  }
+}
+
